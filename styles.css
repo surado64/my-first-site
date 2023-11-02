@@ -1,0 +1,269 @@
+/* Можно удалить все отступы по умолчанию */
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+body {
+    background-color:midnightblue;
+    color:aliceblue;
+
+    font-size: 16px;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    /* font: normal 16px 'Roboto', sans-serif; */
+}
+
+a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/* псевдоселекторы или различные состояния селекторов */
+a:hover { /*нас интересует состояние hover (наведение мышки)*/
+    text-decoration: underline;
+    color:brown;
+}
+
+a:active { /* это состояние, когда мышка зажата на элементе */
+    color:cornflowerblue;
+}
+
+a:visited { /* специальное состояние только для ссылки, когда ссылку уже посетили  */
+    color:darkcyan;
+}
+
+.avatar {
+    width: 200px;
+    border-radius: 30%;
+    box-shadow: 9px 20px 10px rgba(0,0,0,0.25);
+}
+
+/* вместо классов можно использовать id */
+/* их отличие состоит в том, что каждый id уникален */
+/* а ещё чтобы обратиться к нему в css, надо ставить #avatar */
+
+.container {
+    max-width: 750px;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.info p {
+    color:brown;
+    margin: 0;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none; /* это и так по умолчанию */
+    /* text-transform: uppercase; - так будет капсом*/
+    /* letter-spacing: 16px; - расстояние между буквами*/
+    /* word-spacing: 16px; - расстояние между словами*/
+}
+
+.info {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+/* Пишем адаптив: в скобочках задано условие, при котором срабатывает изменение*/
+@media (max-width: 700px) {
+    .info {
+        display: block;
+        text-align: center;
+    }
+}
+
+.info-text {
+    margin-left: 40px;
+}
+
+.info-text h1 {
+    margin-top: 35px;
+}
+
+.info-text h4 {
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+/* свойства будут применены ко всем параграфам в div class "info" */
+
+/* разбираем BOX MODEL, дальше референсы */
+
+/* .social { */
+    /* background:rgb(12, 12, 75); */
+    /*padding: 15px; отступ отовсюду по 15пх */
+    /* padding: 15px 40px; сверху и снизу отступ 15пх, справа и слева по 40пх */
+    /* padding: 15px 20px 25px 30px; по часовой */
+
+    /* padding-top: 15px;
+    padding-right: 20px;
+    padding-left: 30px;
+    padding-bottom: 25px; */
+    /* margin: 20px; для марджинов такие же правила как и для паддингов */
+    
+    /* border: 5px solid red; */
+    /* border-bottom-style: dotted;
+    border-top-width: 15px;
+    border-right-color: green; */
+    /* border-style: double;
+} */
+
+/* 
+.box-model > div {
+    background: black;
+    float: left;
+    height: 200px;
+    width: 25%;
+    border: 4px solid red; 
+    box-sizing: border-box; 
+} */
+/*92 так правила применятся только к детям, без внуков итд */
+/*68 это перегрузит бокс*/
+/*69 именно это делает так, чтобы переполненный box не переносил один из блоков вниз*/
+
+.bg-yellow {
+    background: #535bb7;
+}
+.bg-green {
+    background: #535bb7ab;
+}
+.bg-red {
+    background: #535bb74f;
+}
+.bg-blue {
+    background: #535bb725;
+}
+
+
+.card {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.list {
+    padding: 0 20px;
+}
+
+.list li {
+    color:azure;
+    margin-bottom: 10px;
+}
+
+.table {
+    width: 100%;
+}
+
+.table td {
+    /*margin-bottom: 10px; не сработает из-за дисплея*/
+    padding-bottom: 10px;
+}
+
+.table td:nth-child(2), .table td:nth-child(3) { /* псевдоселектор позволяет точечно стилизовать порядковый элемент */
+    color:rgb(151, 128, 196) ;
+}
+
+/* table tr:nth-child(odd) { покрасит нечётные строки таблички
+    background: #535bb7;
+    border-radius: 20px;
+}*/
+
+/* .link-list { */
+    /* list-style-type: none;
+    padding: 0 20px;
+    list-style-image: ;
+} */
+
+.link-list {
+    list-style-image: linear-gradient(to left bottom, red, rgb(147, 147, 190));
+    padding: 0 20px;
+}
+
+.link-list li {
+    margin-bottom: 10px;
+}
+
+.contact h2{
+    text-align: center;
+}
+
+.form-group label {
+    display: block; /*по умолчанию label является строчным элементом (как и span) => идёт в одну строчку */
+    font-size: 14px;
+    color: aliceblue;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%; /* 100% от родительского блока */
+    box-sizing: border-box;
+    border: none;
+    background: #1c2161;
+    /* border-bottom: 1px solid aliceblue; */
+    margin-bottom: 10px;
+    color: aliceblue;
+    padding: 10px;
+    outline: none;
+    font-family: inherit;
+    border-end-end-radius: 20px;
+    border-start-start-radius: 20px;
+    border-end-start-radius: 20px;
+    border-start-end-radius: 20px;
+}
+
+textarea {
+    resize: none;
+}
+
+.row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.row > .form-group {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.row > .form-group:last-child {
+    margin-right: 0px;
+}
+
+.btn {
+    color:aliceblue;
+    background: #535bb7;
+    padding: 15px 15px;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    border-end-end-radius: 20px;
+    border-start-start-radius: 20px;
+    border-end-start-radius: 20px;
+    border-start-end-radius: 20px;
+    outline: solid aliceblue 1px;
+}
+
+.btn:hover {
+    background: #535bb775;
+    /* opacity: 0.6; */
+}
+
+
+.box {
+    /* position: static; это по умолчанию */
+    position: fixed;
+    border-radius: 50%;
+    bottom: 50px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+}
